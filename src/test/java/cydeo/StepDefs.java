@@ -30,7 +30,7 @@ public class StepDefs {
 
     @When("^I search for \"([^\"]*)\"$")
     public void i_search_for(String search) throws Throwable {
-        etsyHomePage.cookies.click();
+        //etsyHomePage.cookies.click();
         Driver.getDriver().findElement(By.cssSelector("[id*='search-query']")).sendKeys(search + Keys.ENTER);
     }
 
