@@ -2,6 +2,7 @@ package cydeo;
 
 import static org.junit.Assert.fail;
 
+import cydeo.page.EtsyHomePage;
 import io.cucumber.java.After;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
@@ -17,6 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 
 public class StepDefs {
+    EtsyHomePage etsyHomePage = new EtsyHomePage();
 
     @Given("^I am on the home page$")
     public void i_am_on_the_home_page() throws Throwable {
@@ -28,6 +30,7 @@ public class StepDefs {
 
     @When("^I search for \"([^\"]*)\"$")
     public void i_search_for(String search) throws Throwable {
+        etsyHomePage.cookies.click();
         Driver.getDriver().findElement(By.cssSelector("[id*='search-query']")).sendKeys(search + Keys.ENTER);
     }
 
